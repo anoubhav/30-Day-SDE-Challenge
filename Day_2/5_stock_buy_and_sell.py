@@ -17,7 +17,7 @@ def kadane(arr):
     # Time complexity: O(N), space complexity: O(1)
     ans = msf = 0
     for i in range(1, len(arr)):
-        msf = max(msf + prices[i] - prices[i-1], 0)
+        msf = max(msf + arr[i] - arr[i-1], 0)
         ans = max(ans, msf)
     return ans
 
