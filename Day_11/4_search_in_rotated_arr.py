@@ -36,6 +36,40 @@ def usingTwoPassBS(nums, target):
 
     return ind if (ind < len(nums) and nums[ind] == target) else -1
 
+# Ref: https://www.youtube.com/watch?v=84a8fQp5hJA (Errichto)
+def usingOnePassBS(nums, target):
+    n = len(nums)
+    if n == 0: return -1
+
+    lo, hi = 0, n - 1
+    first = nums[0]
+
+    while lo <= hi:
+        mid = (lo + hi)//2
+        val = nums[mid]
+        if val == target:
+            return mid
+        
+        # boolean flags
+        am_big = val >= first
+        target_big = target >= first
+
+        if am_big == target_big:
+            # mid and target in same part
+            if val < target:
+                lo = mid + 1
+            else:
+                hi = mid - 1
+        else:
+            if am_big:
+                # and target is small; move to the right
+                lo = mid + 1
+            else:
+                # target is big; move to the left
+                hi = mid - 1
+    return -1
+
+
 
 nums = [1, 3]
 target = 3
