@@ -42,7 +42,7 @@ def iterativeInorderTwo(root):
 def iterativeVisited(root):
     # This approach is nice as for preorder, inorder, postorder the code is almost the same. The only difference is the ordering of the append operations. While keeping in mind that stack is LIFO.
     
-    stack = [(root, 'False')]
+    stack = [(root, False)]
     traversal = []
     while stack:
         node, visited = stack.pop()
@@ -50,9 +50,9 @@ def iterativeVisited(root):
             if visited:
                 traversal.append(node.val)
             elif node:
-                stack.append((root.right, 'False'))
-                stack.append((root, 'True'))
-                stack.append((root.left, 'False'))
+                stack.append((root.right, False))
+                stack.append((root, True))
+                stack.append((root.left, False))
     return traversal
 
 # Animation: https://docs.google.com/presentation/d/11GWAeUN0ckP7yjHrQkIB0WT9ZUhDBSa-WR0VsPU38fg/edit#slide=id.g61bfb572cf_0_125
