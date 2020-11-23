@@ -3,7 +3,7 @@ def inbuilt(matrix):
     return matrix
 
 def topdown_transpose(matrix):
-    matrix = matrix[::-1] # reverse the row order - topdown
+    matrix[:] = matrix[::-1] # reverse the row order - topdown
 
     # Perform transposal: swap (i, j) with (j, i)
     for i in range(len(matrix)):
